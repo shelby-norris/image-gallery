@@ -11,3 +11,5 @@ A quick image gallery focused on Tailwind styling
   - Transitions/effects
   - Layout utilities
   - Card patterns
+  - Author names
+  - Dark Mode styling
