@@ -14,9 +14,9 @@
     />
     <title>Image Gallery</title>
   </head>
-  <body>
+  <body class="bg-white dark:bg-slate-800">
     <header
-      class="flex flex-row justify-center m-8 p-8 text-shadow-md text-6xl max-sm:m-4 max-sm:p-0"
+      class="flex flex-row justify-center m-8 p-8 text-shadow-md text-6xl dark:text-gray-300 max-sm:m-4 max-sm:p-0"
       style="font-family: Nothing You Could Do"
     >
       Image Gallery
@@ -30,45 +30,69 @@
     </main>
 
     <footer
-      class="flex flex-row justify-center mt-8 mb-3 p-3"
+      class="flex flex-row justify-center mt-8 mb-3 p-3 dark:text-slate-400"
       style="font-family: Montserrat"
     >
       &copy Shelby Norris 2025
     </footer>
-    <script>
-      const gallery = document.getElementById("gallery");
 
-      // Fetch 12 random images from Lorem Picsum
 
-      async function fetchImages() {
-        try {
-          const res = await fetch(
-            "https://picsum.photos/v2/list?page=2&limit=50"
-          );
+ <script>
 
-          const data = await res.json();
+ const gallery = document.getElementById("gallery");
 
-          gallery.innerHTML = data
 
-            .map((image) => {
-              return `
 
- <div class="rounded-lg shadow-lg shadow-slate-500 overflow-hidden">
+ // Fetch 12 random images from Lorem Picsum
+
+ async function fetchImages() {
+
+ try {
+
+ const res = await fetch(
+
+ "https://picsum.photos/v2/list?page=2&limit=50"
+
+ );
+
+ const data = await res.json();
+
+
+
+ gallery.innerHTML = data
+
+ .map((image) => {
+
+ return `
+
+ <div class="rounded-lg shadow-lg shadow-slate-500 dark:shadow-black overflow-hidden">
 
  <img class="w-full h-60 object-cover hover:scale-105 transition duration-300 ease-in-out" src="${image.download_url}" alt="Random image by ${image.author}" />
+
+ <p class="h-20 text-center italic content-center dark:text-white">${image.author}</p>
 
  </div>
 
  `;
-            })
 
-            .join("");
-        } catch (error) {
-          console.error("Failed to fetch images:", error);
-        }
-      }
+ })
 
-      fetchImages();
-    </script>
+ .join("");
+
+ } catch (error) {
+
+ console.error("Failed to fetch images:", error);
+
+ }
+
+ }
+
+
+
+ fetchImages();
+
+ </script>
+
+</html>
   </body>
 </html>
